@@ -11,6 +11,10 @@ char line[] = "|.....................................|\n";
 
 std::string grid[10][41];
 
+Node* neighbors[8];
+std::queue<Node*> path;
+
+
 class Node
 {
 public:
@@ -63,16 +67,6 @@ void printGrid()
     }
 }
 
-void generateObsctacles()
-{
-    for (int i=0; i < 10; i++)
-    {
-        for (int j = 0; j < 41; j++)
-        {
-
-        }
-    }
-}
 
 void MakeObstacles(int maxObstacleAmount, int ObstacleAmount)
 {
@@ -92,9 +86,24 @@ void MakeStartEnd(){
 
 }
 
+void fillNeighbors(Node n)
+{
+    for (int i = 0; i < neighbors.Length, i++)
+        free(neighbors[i]);
+
+    neighbors[0] = new Node(n->_x-1,n->_y-1);
+    neighbors[1] = new Node(n->_x,n->_y-1);
+    neighbors[2] = new Node(n->_x+1,n->_y-1);
+    neighbors[3] = new Node(n->_x-1,n->_y);
+    neighbors[4] = new Node(n->_x+1,n->_y);
+    neighbors[5] = new Node(n->_x-1,n->_y+1);
+    neighbors[6] = new Node(n->_x,n->_y+1);
+    neighbors[7] = new Node(n->_x+1,n->_y+1);
+
+}
+
 float gScore(Node* start, Node* n)
 {
-    start
 }
 
 float aStar(Node n)
